@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23C79F9027FA6ECB003578EC /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23C79F9027FA6ECB003578EC /* Cursed Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cursed Pong.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C79F9327FA6ECB003578EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23C79F9527FA6ECB003578EC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		23C79F9727FA6ECB003578EC /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 		23C79F8727FA6ECB003578EC = {
 			isa = PBXGroup;
 			children = (
-				23C79F9227FA6ECB003578EC /* Pong */,
+				23C79F9227FA6ECB003578EC /* CursedPong */,
 				23C79F9127FA6ECB003578EC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,12 +51,12 @@
 		23C79F9127FA6ECB003578EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23C79F9027FA6ECB003578EC /* Pong.app */,
+				23C79F9027FA6ECB003578EC /* Cursed Pong.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		23C79F9227FA6ECB003578EC /* Pong */ = {
+		23C79F9227FA6ECB003578EC /* CursedPong */ = {
 			isa = PBXGroup;
 			children = (
 				23C79F9327FA6ECB003578EC /* AppDelegate.swift */,
@@ -68,15 +68,15 @@
 				23C79FA027FA6ECE003578EC /* Assets.xcassets */,
 				23C79FA227FA6ECE003578EC /* LaunchScreen.storyboard */,
 			);
-			path = Pong;
+			path = CursedPong;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23C79F8F27FA6ECB003578EC /* Pong */ = {
+		23C79F8F27FA6ECB003578EC /* CursedPong */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23C79FA727FA6ECE003578EC /* Build configuration list for PBXNativeTarget "Pong" */;
+			buildConfigurationList = 23C79FA727FA6ECE003578EC /* Build configuration list for PBXNativeTarget "CursedPong" */;
 			buildPhases = (
 				23C79F8C27FA6ECB003578EC /* Sources */,
 				23C79F8D27FA6ECB003578EC /* Frameworks */,
@@ -86,9 +86,9 @@
 			);
 			dependencies = (
 			);
-			name = Pong;
+			name = CursedPong;
 			productName = Pong;
-			productReference = 23C79F9027FA6ECB003578EC /* Pong.app */;
+			productReference = 23C79F9027FA6ECB003578EC /* Cursed Pong.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -106,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 23C79F8B27FA6ECB003578EC /* Build configuration list for PBXProject "Pong" */;
+			buildConfigurationList = 23C79F8B27FA6ECB003578EC /* Build configuration list for PBXProject "CursedPong" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23C79F8F27FA6ECB003578EC /* Pong */,
+				23C79F8F27FA6ECB003578EC /* CursedPong */,
 			);
 		};
 /* End PBXProject section */
@@ -306,8 +306,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Pong;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.cursedPong;
+				PRODUCT_NAME = "Cursed Pong";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,8 +334,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Pong;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.cursedPong;
+				PRODUCT_NAME = "Cursed Pong";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -345,7 +345,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23C79F8B27FA6ECB003578EC /* Build configuration list for PBXProject "Pong" */ = {
+		23C79F8B27FA6ECB003578EC /* Build configuration list for PBXProject "CursedPong" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23C79FA527FA6ECE003578EC /* Debug */,
@@ -354,7 +354,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23C79FA727FA6ECE003578EC /* Build configuration list for PBXNativeTarget "Pong" */ = {
+		23C79FA727FA6ECE003578EC /* Build configuration list for PBXNativeTarget "CursedPong" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23C79FA827FA6ECE003578EC /* Debug */,
