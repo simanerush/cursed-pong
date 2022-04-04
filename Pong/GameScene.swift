@@ -12,6 +12,7 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    private var rect: SKShapeNode?
     
     override func didMove(to view: SKView) {
         
@@ -34,6 +35,14 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        
+        self.rect = SKShapeNode.init(rectOf: CGSize(width: 300, height: 100))
+        if let rect = self.rect {
+            rect.name = "bar"
+            rect.fillColor = SKColor.white
+            rect.position = CGPoint(x: 0.5, y: 0.5)
+            self.addChild(rect)
+        }
     }
     
     
@@ -50,6 +59,10 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.blue
             self.addChild(n)
+        }
+        
+        if let rect = self.rect {
+            rect.position = CGPoint(x: pos.x, y: 0.5)
         }
     }
     
