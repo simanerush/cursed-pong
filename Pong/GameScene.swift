@@ -13,6 +13,7 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var rect: SKShapeNode?
+    private var ball: SKShapeNode?
     
     override func didMove(to view: SKView) {
         
@@ -36,12 +37,33 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
         
-        self.rect = SKShapeNode.init(rectOf: CGSize(width: 300, height: 100))
+        self.rect = SKShapeNode.init(rectOf: CGSize(width: 250, height: 50))
         if let rect = self.rect {
             rect.name = "bar"
             rect.fillColor = SKColor.white
-            rect.position = CGPoint(x: 0.5, y: 0.5)
+            rect.position = CGPoint(x: 0, y: -500)
             self.addChild(rect)
+        }
+        
+        
+        // Create a ball
+        self.ball = SKShapeNode.init(circleOfRadius: 30)
+        if let ball = self.ball {
+            let ballPhysics = SKPhysicsBody()
+            ballPhysics.velocity = CGVector(dx: 100, dy: 199)
+            
+            if ball.position.x > 30 {
+                ballPhysics.velocity.dx = ballPhysics.velocity.dx * -1
+            }
+            
+            ballPhysics.affectedByGravity = false
+            ballPhysics.linearDamping = 0
+            
+            ball.name = "ball"
+            ball.fillColor = .blue
+            ball.position = CGPoint(x:0,y:0)
+            ball.physicsBody = ballPhysics
+            self.addChild(ball)
         }
     }
     
@@ -62,7 +84,7 @@ class GameScene: SKScene {
         }
         
         if let rect = self.rect {
-            rect.position = CGPoint(x: pos.x, y: 0.5)
+            rect.position = CGPoint(x: pos.x, y: -500)
         }
     }
     
@@ -96,6 +118,15 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
+        if let ball = self.ball {
+        
+            if ball.position.x > 100 || ball.position.x < -100 {
+                ball.physicsBody!.velocity.dx *= -1
+            }
+            if ball.position.y > 100 || ball.position.y < self.rect!.position.y + self.rect!.frame.height {
+                ball.physicsBody!.velocity.dy *= -1
+            }
+        }
         // Called before each frame is rendered
     }
 }
