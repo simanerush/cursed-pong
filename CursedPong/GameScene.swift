@@ -9,17 +9,59 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
+    var button: SKNode! = nil
     //    private var label : SKLabelNode?
     //    private var spinnyNode : SKShapeNode?
     private var player: SKShapeNode?
     private var aiPlayer: SKShapeNode?
     private var ball: SKShapeNode?
     private var gamePhysics : SKPhysicsBody?
-    private var ballIsGoingUp: Bool?
+    private var ballIsGoingUp : Bool?
     
+    private var paddleWidth : Int?
+    private var ballSensitivity : Double?
+    private var aiSpeed : Double?
+    
+    private var won : Bool?
+    private var lost : Bool?
+    
+    
+//    init(player: SKShapeNode?,
+//         aiPlayer: SKShapeNode?,
+//         ball: SKShapeNode?,
+//         gamePhysics: SKPhysicsBody?,
+//         ballIsGoingUp: Bool?,
+//         paddleWidth: Int?,
+//         ballSensitivity: Double?,
+//         aiSpeed: Double?,
+//         won: Bool,
+//         lost: Bool)
+//    {
+//        self.player = player
+//        self.aiPlayer = aiPlayer
+//        self.ball = ball
+//        self.gamePhysics = gamePhysics
+//        self.ballIsGoingUp = ballIsGoingUp
+//        self.aiSpeed = aiSpeed
+//        self.won = won
+//        self.lost = lost
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
     override func didMove(to view: SKView) {
-        
+// Create a simple red rectangle that's 100x44
+        button = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
+        self.addChild(button)
+
+        self.paddleWidth = 150
+        self.lost = false
+        self.won = false
+       
         // Get label node from scene and store it for use later
         //        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
         //        if let label = self.label {
@@ -40,14 +82,14 @@ class GameScene: SKScene {
         //                                              SKAction.removeFromParent()]))
         //        }
         
-        self.player = SKShapeNode.init(rectOf: CGSize(width: 250, height: 50))
+        self.player = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
         if let rect = self.player {
             rect.fillColor = SKColor.white
             rect.position = CGPoint(x: 0, y: self.frame.minY + rect.frame.height * 1.5)
             self.addChild(rect)
         }
         
-        self.aiPlayer = SKShapeNode.init(rectOf: CGSize(width: 250, height: 50))
+        self.aiPlayer = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
         if let rect = self.aiPlayer {
             let aiPhysics = SKPhysicsBody()
             aiPhysics.affectedByGravity = false
@@ -86,6 +128,12 @@ class GameScene: SKScene {
         }
     }
     
+    func goToGameScene(){
+        let gameScene: GameScene = GameScene(size: CGSize(width: 2338, height: 1080)) // create your new scene
+//        let transition = SKTransition.fade(withDuration: 1.0) // create type of transition (you can check in documentation for more transtions)
+//        gameScene.scaleMode = SKSceneScaleMode.fill
+        self.view!.presentScene(gameScene)
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -103,7 +151,7 @@ class GameScene: SKScene {
         //        }
         
         if let rect = self.player {
-            rect.position = CGPoint(x: pos.x, y: self.frame.minY + rect.frame.height * 1.5)
+            rect.position = CGPoint(x: pos.x, y: self.frame.minY + rect.frame.height * 1.5 + 100)
         }
     }
     
@@ -128,6 +176,16 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+// Loop over all the touches in this event
+        for touch in touches {
+            // Get the location of the touch in this scene
+            let location = touch.location(in: self)
+            // Check if the location of the touch is within the button's bounds
+            if button.contains(location) {
+                self.won! = true
+            }
+        }
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
@@ -137,31 +195,46 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
-        if let ball = self.ball {
+        self.ballSensitivity = 10
+        //Check if off screen:
+        if self.ball!.position.y > self.frame.maxY {
+            self.won = true
+        }else if ball!.position.y < self.frame.minY {
+            self.lost = true
+        }
+        
+        if let ball = self.ball{
+            if !self.won! && !self.lost!{
             
-            if ball.position.x > self.frame.maxX - ball.frame.size.width * 1.5 || ball.position.x < self.frame.minX + ball.frame.size.width * 1.5 {
-                ball.physicsBody!.velocity.dx *= -1
-            }
-            
-            if ball.position.y > self.frame.maxY - ball.frame.size.height{
-                ball.physicsBody!.velocity.dy *= -1
-            }
-            
-            if ball.position.y < self.player!.position.y + ball.frame.height && ball.position.x > self.player!.position.x - self.player!.frame.width && ball.position.x < self.player!.position.x + self.player!.frame.width && !self.ballIsGoingUp! {
-                ball.physicsBody!.velocity.dy *= -1
-                ball.physicsBody!.velocity.dx = (ball.position.x - player!.position.x)/1
-                self.ballIsGoingUp = true
-            }
-            
-            if ball.position.y > self.aiPlayer!.position.y - ball.frame.height && ball.position.x > self.aiPlayer!.position.x - self.aiPlayer!.frame.width && ball.position.x < self.aiPlayer!.position.x + self.aiPlayer!.frame.width  && self.ballIsGoingUp! {
-                ball.physicsBody!.velocity.dy *= -1
-                ball.physicsBody!.velocity.dx = (ball.position.x - aiPlayer!.position.x)/1
-                self.ballIsGoingUp = false
+                if ball.position.x > self.frame.maxX - ball.frame.size.width * 1.5 || ball.position.x < self.frame.minX + ball.frame.size.width * 1.5 {
+                    ball.physicsBody!.velocity.dx *= -1
+                }
+                
+                if ball.position.y > self.frame.maxY - ball.frame.size.height{
+                    ball.physicsBody!.velocity.dy *= -1
+                }
+                
+                if ball.position.y < self.player!.position.y + ball.frame.height && ball.position.x > self.player!.position.x - self.player!.frame.width && ball.position.x < self.player!.position.x + self.player!.frame.width && !self.ballIsGoingUp! {
+                    ball.physicsBody!.velocity.dy *= -1
+                    ball.physicsBody!.velocity.dx = (ball.position.x - player!.position.x) * self.ballSensitivity!
+                    self.ballIsGoingUp = true
+                }
+                
+                if ball.position.y > self.aiPlayer!.position.y + ball.frame.height && ball.position.x > self.aiPlayer!.position.x - self.aiPlayer!.frame.width && ball.position.x < self.aiPlayer!.position.x + self.aiPlayer!.frame.width  && self.ballIsGoingUp! {
+                    ball.physicsBody!.velocity.dy *= -1
+                    ball.physicsBody!.velocity.dx = (ball.position.x - aiPlayer!.position.x) * 5
+                    self.ballIsGoingUp = false
+                }
+            }else {
+                goToGameScene()
+                self.won = false
+                self.lost = false
             }
         }
         if let player2 = self.aiPlayer {
+            self.aiSpeed = 0.2
             let distanceToBall = self.ball!.position.x - player2.position.x
-            player2.physicsBody!.velocity.dx = distanceToBall * 3
+            player2.physicsBody!.velocity.dx = distanceToBall * self.aiSpeed!
         }
         // Called before each frame is rendered
     }
