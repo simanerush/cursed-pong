@@ -96,9 +96,9 @@ class GameScene: SKScene {
         //            self.addChild(n)
         //        }
         
-//        if let rect = self.player {
-//            rect.position = CGPoint(x: pos.x, y: self.frame.minY + rect.frame.height * 1.5 + 100)
-//        }
+        if let paddle = self.player {
+            paddle.shapeNode.position = CGPoint(x: pos.x, y: paddle.yPosition)
+        }
     }
     
     func touchUp(atPoint pos : CGPoint) {
