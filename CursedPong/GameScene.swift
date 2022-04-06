@@ -181,9 +181,9 @@ class GameScene: SKScene {
             // Get the location of the touch in this scene
             let location = touch.location(in: self)
             // Check if the location of the touch is within the button's bounds
-            if button.contains(location) {
-                self.won! = true
-            }
+//            if button.contains(location) {
+//                self.won! = true
+//            }
         }
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
