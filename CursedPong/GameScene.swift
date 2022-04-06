@@ -81,29 +81,29 @@ class GameScene: SKScene {
         //                                              SKAction.removeFromParent()]))
         //        }
         
-        self.player = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
-        if let rect = self.player {
-            rect.fillColor = SKColor.white
-            rect.position = CGPoint(x: 0, y: self.frame.minY + rect.frame.height * 1.5)
-            self.addChild(rect)
-        }
-        
-        self.aiPlayer = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
-        if let rect = self.aiPlayer {
-            let aiPhysics = SKPhysicsBody()
-            aiPhysics.affectedByGravity = false
-            aiPhysics.linearDamping = 0
-            rect.physicsBody = aiPhysics
-            
-            rect.fillColor = SKColor.white
-            rect.position = CGPoint(x: 0, y: self.frame.maxY - rect.frame.height * 2.5)
-            self.addChild(rect)
+//        self.player = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
+//        if let rect = self.player {
+//            rect.fillColor = SKColor.white
+//            rect.position = CGPoint(x: 0, y: self.frame.minY + rect.frame.height * 1.5)
+//            self.addChild(rect)
+//        }
+//
+//        self.aiPlayer = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
+//        if let rect = self.aiPlayer {
+//            let aiPhysics = SKPhysicsBody()
+//            aiPhysics.affectedByGravity = false
+//            aiPhysics.linearDamping = 0
+//            rect.physicsBody = aiPhysics
+//
+//            rect.fillColor = SKColor.white
+//            rect.position = CGPoint(x: 0, y: self.frame.maxY - rect.frame.height * 2.5)
+//            self.addChild(rect)
             
         }
         
         // Create a ball
-        self.ball = Ball()
-        if let ball = self.ball {
+//        self.ball = Ball()
+//        if let ball = self.ball {
 //            let ballPhysics = SKPhysicsBody()
 //            ballPhysics.velocity = CGVector(dx: Int.random(in: 100...500), dy: Int.random(in: 500...1000))
 //            if ballPhysics.velocity.dy > 0 {
@@ -123,11 +123,11 @@ class GameScene: SKScene {
 //            ball.fillColor = .blue
 //            ball.position = CGPoint(x:0,y:0)
 //            ball.physicsBody = ballPhysics
-            self.addChild(ball.shapeNode)
-        }
-    }
+//            self.addChild(ball.shapeNode)
+//        }
+//    }
     
-    func goToGameScene(){
+    func goToGameScene() {
         let gameScene: GameScene = GameScene(size: CGSize(width: 2338, height: 1080)) // create your new scene
 //        let transition = SKTransition.fade(withDuration: 1.0) // create type of transition (you can check in documentation for more transtions)
 //        gameScene.scaleMode = SKSceneScaleMode.fill
@@ -149,9 +149,9 @@ class GameScene: SKScene {
         //            self.addChild(n)
         //        }
         
-        if let rect = self.player {
-            rect.position = CGPoint(x: pos.x, y: self.frame.minY + rect.frame.height * 1.5 + 100)
-        }
+//        if let rect = self.player {
+//            rect.position = CGPoint(x: pos.x, y: self.frame.minY + rect.frame.height * 1.5 + 100)
+//        }
     }
     
     func touchUp(atPoint pos : CGPoint) {

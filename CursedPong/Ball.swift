@@ -34,7 +34,7 @@ class Ball {
     }
     
     func update() {
-        self.physicsBody.up
+        
     }
     
 }

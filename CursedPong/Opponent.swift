@@ -8,8 +8,9 @@
 import Foundation
 class Opponent : Player {
     var aiSpeed: Double
-    init(yPosition: Double, aiSpeed: Double){
-        super.init(yPosition: yPosition)
+    init(yPosition: Double, aiSpeed: Double) {
         self.aiSpeed = aiSpeed
+        super.init(yPosition: yPosition)
+        
     }
 }
