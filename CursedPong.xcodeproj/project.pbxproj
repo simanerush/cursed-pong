@@ -17,6 +17,7 @@
 		23C79FA427FA6ECE003578EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C79FA227FA6ECE003578EC /* LaunchScreen.storyboard */; };
 		8403B41A27FCD029000317F7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B41927FCD029000317F7 /* Player.swift */; };
 		8403B41C27FCD046000317F7 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B41B27FCD046000317F7 /* Ball.swift */; };
+		8403B41E27FD1679000317F7 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B41D27FD1679000317F7 /* Opponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		23C79FA327FA6ECE003578EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8403B41927FCD029000317F7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8403B41B27FCD046000317F7 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		8403B41D27FD1679000317F7 /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				8403B41927FCD029000317F7 /* Player.swift */,
+				8403B41D27FD1679000317F7 /* Opponent.swift */,
 				8403B41B27FCD046000317F7 /* Ball.swift */,
 				23C79F9327FA6ECB003578EC /* AppDelegate.swift */,
 				23C79F9527FA6ECB003578EC /* GameScene.sks */,
@@ -152,6 +155,7 @@
 			files = (
 				8403B41A27FCD029000317F7 /* Player.swift in Sources */,
 				23C79F9A27FA6ECB003578EC /* GameScene.swift in Sources */,
+				8403B41E27FD1679000317F7 /* Opponent.swift in Sources */,
 				8403B41C27FCD046000317F7 /* Ball.swift in Sources */,
 				23C79F9C27FA6ECB003578EC /* GameViewController.swift in Sources */,
 				23C79F9427FA6ECB003578EC /* AppDelegate.swift in Sources */,
