@@ -12,15 +12,14 @@ class GameScene: SKScene {
     var button: SKNode! = nil
     //    private var label : SKLabelNode?
     //    private var spinnyNode : SKShapeNode?
-    private var player: SKShapeNode?
-    private var aiPlayer: SKShapeNode?
+    private var player: Player?
+    private var aiPlayer: Player?
     private var ball: Ball?
     private var gamePhysics : SKPhysicsBody?
-    private var ballIsGoingUp : Bool?
     
     private var paddleWidth : Int?
     private var ballSensitivity : Double?
-    private var aiSpeed : Double?
+
     
     private var won : Bool?
     private var lost : Bool?
@@ -53,10 +52,10 @@ class GameScene: SKScene {
 //
     override func didMove(to view: SKView) {
 // Create a simple red rectangle that's 100x44
-        button = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 44))
-        // Put it in the center of the scene
-        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
-        self.addChild(button)
+//        button = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 44))
+//        // Put it in the center of the scene
+//        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
+//        self.addChild(button)
 
         self.paddleWidth = 150
         self.lost = false
@@ -195,48 +194,7 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
-        self.ballSensitivity = 10
-        //Check if off screen:
-        if self.ball!.shapeNode.position.y > self.frame.maxY {
-            self.won = true
-        }else if ball!.shapeNode.position.y < self.frame.minY {
-            self.lost = true
-        }
         
-        if let ball = self.ball{
-            if !self.won! && !self.lost!{
-            
-                if ball.position.x > self.frame.maxX - ball.frame.size.width * 1.5 || ball.position.x < self.frame.minX + ball.frame.size.width * 1.5 {
-                    ball.physicsBody!.velocity.dx *= -1
-                }
-                
-                if ball.position.y > self.frame.maxY - ball.frame.size.height{
-                    ball.physicsBody!.velocity.dy *= -1
-                }
-                
-                if ball.position.y < self.player!.position.y + ball.frame.height && ball.position.x > self.player!.position.x - self.player!.frame.width && ball.position.x < self.player!.position.x + self.player!.frame.width && !self.ballIsGoingUp! {
-                    ball.physicsBody!.velocity.dy *= -1
-                    ball.physicsBody!.velocity.dx = (ball.position.x - player!.position.x) * self.ballSensitivity!
-                    self.ballIsGoingUp = true
-                }
-                
-                if ball.position.y > self.aiPlayer!.position.y + ball.frame.height && ball.position.x > self.aiPlayer!.position.x - self.aiPlayer!.frame.width && ball.position.x < self.aiPlayer!.position.x + self.aiPlayer!.frame.width  && self.ballIsGoingUp! {
-                    ball.physicsBody!.velocity.dy *= -1
-                    ball.physicsBody!.velocity.dx = (ball.position.x - aiPlayer!.position.x) * 5
-                    self.ballIsGoingUp = false
-                }
-            }else {
-                goToGameScene()
-                self.won = false
-                self.lost = false
-            }
-        }
-        if let player2 = self.aiPlayer {
-            self.aiSpeed = 0.2
-            let distanceToBall = self.ball!.position.x - player2.position.x
-            player2.physicsBody!.velocity.dx = distanceToBall * self.aiSpeed!
-        }
         // Called before each frame is rendered
     }
 }
-

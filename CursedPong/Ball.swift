@@ -12,8 +12,10 @@ class Ball {
     
     var shapeNode: SKShapeNode
     var physicsBody: SKPhysicsBody
+    var sensitivity: Double
     
     init() {
+        self.sensitivity = 3
         self.shapeNode = SKShapeNode(circleOfRadius: 30)
         self.physicsBody = SKPhysicsBody()
         self.physicsBody.velocity = CGVector(dx: Int.random(in: 100...500), dy: Int.random(in: 500...1000))
@@ -28,6 +30,11 @@ class Ball {
         self.shapeNode.name = "ball"
         self.shapeNode.fillColor = .blue
         self.shapeNode.position = CGPoint(x:0,y:0)
+        self.shapeNode.physicsBody = self.physicsBody
+    }
+    
+    func update() {
+        self.physicsBody.up
     }
     
 }
