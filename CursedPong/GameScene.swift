@@ -55,56 +55,23 @@ class GameScene: SKScene {
         //                                              SKAction.removeFromParent()]))
         //        }
         
-//        self.player = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
-//        if let rect = self.player {
-//            rect.fillColor = SKColor.white
-//            rect.position = CGPoint(x: 0, y: self.frame.minY + rect.frame.height * 1.5)
-//            self.addChild(rect)
-//        }
-//
-//        self.aiPlayer = SKShapeNode.init(rectOf: CGSize(width: self.paddleWidth!, height: 50))
-//        if let rect = self.aiPlayer {
-//            let aiPhysics = SKPhysicsBody()
-//            aiPhysics.affectedByGravity = false
-//            aiPhysics.linearDamping = 0
-//            rect.physicsBody = aiPhysics
-//
-//            rect.fillColor = SKColor.white
-//            rect.position = CGPoint(x: 0, y: self.frame.maxY - rect.frame.height * 2.5)
-//            self.addChild(rect)
-            
-//        }
-        
+        // Create two players
         self.player = Player(yPosition: self.frame.minY + 75)
         if let player = player {
             self.addChild(player.shapeNode)
         }
         
+        self.aiPlayer = Player(yPosition: self.frame.maxY - 125)
+        if let player = self.aiPlayer {
+            self.addChild(player.shapeNode)
+        }
+        
         
         // Create a ball
-//        self.ball = Ball()
-//        if let ball = self.ball {
-//            let ballPhysics = SKPhysicsBody()
-//            ballPhysics.velocity = CGVector(dx: Int.random(in: 100...500), dy: Int.random(in: 500...1000))
-//            if ballPhysics.velocity.dy > 0 {
-//                self.ballIsGoingUp = true
-//            } else {
-//                self.ballIsGoingUp = false
-//            }
-//            
-//            if ball.position.x > 30 {
-//                ballPhysics.velocity.dx = ballPhysics.velocity.dx * -1
-//            }
-//            
-//            ballPhysics.affectedByGravity = false
-//            ballPhysics.linearDamping = 0
-//            
-//            ball.name = "ball"
-//            ball.fillColor = .blue
-//            ball.position = CGPoint(x:0,y:0)
-//            ball.physicsBody = ballPhysics
-//            self.addChild(ball.shapeNode)
-//        }
+        self.ball = Ball()
+        if let ball = self.ball {
+            self.addChild(ball.shapeNode)
+        }
     }
     
     func goToGameScene() {
