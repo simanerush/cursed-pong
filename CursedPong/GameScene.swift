@@ -23,33 +23,7 @@ class GameScene: SKScene {
     
     private var won : Bool?
     private var lost : Bool?
-    
-    
-//    init(player: SKShapeNode?,
-//         aiPlayer: SKShapeNode?,
-//         ball: SKShapeNode?,
-//         gamePhysics: SKPhysicsBody?,
-//         ballIsGoingUp: Bool?,
-//         paddleWidth: Int?,
-//         ballSensitivity: Double?,
-//         aiSpeed: Double?,
-//         won: Bool,
-//         lost: Bool)
-//    {
-//        self.player = player
-//        self.aiPlayer = aiPlayer
-//        self.ball = ball
-//        self.gamePhysics = gamePhysics
-//        self.ballIsGoingUp = ballIsGoingUp
-//        self.aiSpeed = aiSpeed
-//        self.won = won
-//        self.lost = lost
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
+
     override func didMove(to view: SKView) {
 // Create a simple red rectangle that's 100x44
 //        button = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 44))
@@ -99,7 +73,13 @@ class GameScene: SKScene {
 //            rect.position = CGPoint(x: 0, y: self.frame.maxY - rect.frame.height * 2.5)
 //            self.addChild(rect)
             
+//        }
+        
+        self.player = Player(yPosition: self.frame.minY + 75)
+        if let player = player {
+            self.addChild(player.shapeNode)
         }
+        
         
         // Create a ball
 //        self.ball = Ball()
@@ -125,7 +105,7 @@ class GameScene: SKScene {
 //            ball.physicsBody = ballPhysics
 //            self.addChild(ball.shapeNode)
 //        }
-//    }
+    }
     
     func goToGameScene() {
         let gameScene: GameScene = GameScene(size: CGSize(width: 2338, height: 1080)) // create your new scene
@@ -179,7 +159,7 @@ class GameScene: SKScene {
 // Loop over all the touches in this event
         for touch in touches {
             // Get the location of the touch in this scene
-            let location = touch.location(in: self)
+            _ = touch.location(in: self)
             // Check if the location of the touch is within the button's bounds
 //            if button.contains(location) {
 //                self.won! = true

@@ -16,11 +16,12 @@ class Player {
     
     init(yPosition: Double) {
         self.yPosition = yPosition
-        var playerShapeNode = SKShapeNode(rectOf: CGSize.init(width:30,height:30))
+        let playerShapeNode = SKShapeNode(rectOf: CGSize.init(width: 170, height: 40))
         playerShapeNode.position = CGPoint(x : 0, y : self.yPosition)
+        playerShapeNode.fillColor = .white
         self.shapeNode = playerShapeNode
         
-        var playerPhysicsBody = SKPhysicsBody()
+        let playerPhysicsBody = SKPhysicsBody()
         playerPhysicsBody.affectedByGravity = false
         playerPhysicsBody.linearDamping = 0
         playerPhysicsBody.restitution = 1
