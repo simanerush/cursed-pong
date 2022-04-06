@@ -14,7 +14,7 @@ class GameScene: SKScene {
     //    private var spinnyNode : SKShapeNode?
     private var player: SKShapeNode?
     private var aiPlayer: SKShapeNode?
-    private var ball: SKShapeNode?
+    private var ball: Ball?
     private var gamePhysics : SKPhysicsBody?
     private var ballIsGoingUp : Bool?
     
@@ -103,28 +103,28 @@ class GameScene: SKScene {
         }
         
         // Create a ball
-        self.ball = SKShapeNode.init(circleOfRadius: 30)
+        self.ball = Ball()
         if let ball = self.ball {
-            let ballPhysics = SKPhysicsBody()
-            ballPhysics.velocity = CGVector(dx: Int.random(in: 100...500), dy: Int.random(in: 500...1000))
-            if ballPhysics.velocity.dy > 0 {
-                self.ballIsGoingUp = true
-            } else {
-                self.ballIsGoingUp = false
-            }
-            
-            if ball.position.x > 30 {
-                ballPhysics.velocity.dx = ballPhysics.velocity.dx * -1
-            }
-            
-            ballPhysics.affectedByGravity = false
-            ballPhysics.linearDamping = 0
-            
-            ball.name = "ball"
-            ball.fillColor = .blue
-            ball.position = CGPoint(x:0,y:0)
-            ball.physicsBody = ballPhysics
-            self.addChild(ball)
+//            let ballPhysics = SKPhysicsBody()
+//            ballPhysics.velocity = CGVector(dx: Int.random(in: 100...500), dy: Int.random(in: 500...1000))
+//            if ballPhysics.velocity.dy > 0 {
+//                self.ballIsGoingUp = true
+//            } else {
+//                self.ballIsGoingUp = false
+//            }
+//            
+//            if ball.position.x > 30 {
+//                ballPhysics.velocity.dx = ballPhysics.velocity.dx * -1
+//            }
+//            
+//            ballPhysics.affectedByGravity = false
+//            ballPhysics.linearDamping = 0
+//            
+//            ball.name = "ball"
+//            ball.fillColor = .blue
+//            ball.position = CGPoint(x:0,y:0)
+//            ball.physicsBody = ballPhysics
+            self.addChild(ball.shapeNode)
         }
     }
     
@@ -197,9 +197,9 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         self.ballSensitivity = 10
         //Check if off screen:
-        if self.ball!.position.y > self.frame.maxY {
+        if self.ball!.shapeNode.position.y > self.frame.maxY {
             self.won = true
-        }else if ball!.position.y < self.frame.minY {
+        }else if ball!.shapeNode.position.y < self.frame.minY {
             self.lost = true
         }
         
