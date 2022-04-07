@@ -108,7 +108,8 @@ class GameScene: SKScene {
         
         if let paddle = self.player {
 //            paddle.shapeNode.run(SKAction.moveTo(x: pos.x,y: paddle.yPosition, duration: 0))
-            paddle.shapeNode.run(SKAction.moveTo(x: pos.x, duration: 0))
+//            paddle.shapeNode.run(SKAction.moveTo(x: pos.x, duration: 0))
+            paddle.shapeNode.run(SKAction: Moveto)
         }
     }
     
