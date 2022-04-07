@@ -21,6 +21,7 @@ class Ball {
         self.physicsBody.velocity = CGVector(dx: 0, dy: -1000)
         self.physicsBody.mass = 0.00
         self.physicsBody.collisionBitMask = 0b0001
+        self.physicsBody.friction = 0
         if self.shapeNode.position.x > 30 {
             self.physicsBody.velocity.dx = self.physicsBody.velocity.dx * -1
         }

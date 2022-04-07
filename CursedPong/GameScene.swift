@@ -20,7 +20,6 @@ class GameScene: SKScene {
     private var paddleWidth : Int?
     private var ballSensitivity : Double?
 
-    
     private var won : Bool?
     private var lost : Bool?
 
@@ -30,7 +29,18 @@ class GameScene: SKScene {
 //        // Put it in the center of the scene
 //        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
 //        self.addChild(button)
-
+        
+        let border = SKNode()
+        
+        let borderPhysicsbody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        borderPhysicsbody.friction = 0
+        borderPhysicsbody.restitution = 1
+        borderPhysicsbody.categoryBitMask = 0b0001
+        borderPhysicsbody.collisionBitMask = 0b0001
+        
+        border.physicsBody = borderPhysicsbody
+        self.addChild(border)
+        
         self.paddleWidth = 150
         self.lost = false
         self.won = false
@@ -97,7 +107,8 @@ class GameScene: SKScene {
         //        }
         
         if let paddle = self.player {
-            paddle.shapeNode.position = CGPoint(x: pos.x, y: paddle.yPosition)
+//            paddle.shapeNode.run(SKAction.moveTo(x: pos.x,y: paddle.yPosition, duration: 0))
+            paddle.shapeNode.run(SKAction.moveTo(x: pos.x, duration: 0))
         }
     }
     
@@ -145,6 +156,7 @@ class GameScene: SKScene {
             aiPlayer.update(xPositionDifference: ball!.shapeNode.position.x - aiPlayer.shapeNode.position.x)
 //            aiPlayer.physicsBody.velocity.dx = aiPlayer.aiSpeed * 30
             aiPlayer.shapeNode.position.x += aiPlayer.physicsBody.velocity.dx
+            aiPlayer.shapeNode.run(SKAction.moveTo(x: self.ball!.shapeNode.position.x,duration: 0.2))
         }
         // Called before each frame is rendered
     }
