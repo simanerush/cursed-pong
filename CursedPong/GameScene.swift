@@ -22,6 +22,10 @@ class GameScene: SKScene {
 
     private var won : Bool?
     private var lost : Bool?
+    
+    private var score: (UInt, UInt)?
+    
+    private var scoreLabel: SKLabelNode?
 
     override func didMove(to view: SKView) {
 // Create a simple red rectangle that's 100x44
@@ -44,14 +48,29 @@ class GameScene: SKScene {
         self.paddleWidth = 150
         self.lost = false
         self.won = false
-       
-        // Get label node from scene and store it for use later
-        //        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        //        if let label = self.label {
-        //            label.alpha = 0.0
-        //            label.run(SKAction.fadeIn(withDuration: 2.0))
-        //        }
+        self.score = (0, 0)
         
+        self.scoreLabel = SKLabelNode(fontNamed: "ArialMT")
+        if let scoreLabel = scoreLabel {
+            scoreLabel.fontSize = 35
+            scoreLabel.numberOfLines = 2
+            scoreLabel.fontColor = .white
+            scoreLabel.position = CGPoint(x: 0, y: 0)
+            scoreLabel.alpha = 0.0
+            scoreLabel.zPosition = 5
+            scoreLabel.run(SKAction.fadeIn(withDuration: 2.0))
+            self.addChild(scoreLabel)
+        }
+        
+        let logoLabel = SKLabelNode()
+        logoLabel.fontSize = 35
+        logoLabel.fontColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
+        logoLabel.text = "C̵̗̘͒͊̆̆͒̽̆̄̀̿̓̍̎͜͝͝ũ̴̯̗͙͕̰͙̫̌̒̓̈́̀̏́̌r̷̛̭̲̳͚̈̀̓̆̆́͂̔͑͑s̵̩͔̦̔͋̏͌͊͊̐̓̈́̈̌͌͘̚ȇ̸̟̺̒̈ḓ̸̨̧̳̣̺̯͋͛͊͐̏͊̚͜ ̵͖̗̭͒̓͂̍̈́̀̍̕͠P̸̡̥͎̳̖̈́͌̾̈̒͆͋̏̚̚ơ̵̧̦̮͍̘̹̪͇͑̌̂̉̓̈n̵̢̜̦͎̟̬̖̭͂̍́̄̐̌͛̀͌g̷̢̮͚̝̞̀̋̈́̏̂̎͂͝"
+        logoLabel.numberOfLines = 1
+        logoLabel.position = CGPoint(x: 0, y: 200)
+        logoLabel.zPosition = 5
+        logoLabel.run(SKAction.fadeIn(withDuration: 2.0))
+        self.addChild(logoLabel)
         // Create shape node to use during mouse interaction
         //        let w = (self.size.width + self.size.height) * 0.05
         //        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
@@ -157,6 +176,7 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        print(score)
         if let aiPlayer = self.aiPlayer {
             aiPlayer.update(xPositionDifference: ball!.shapeNode.position.x - aiPlayer.shapeNode.position.x)
 //            aiPlayer.physicsBody.velocity.dx = aiPlayer.aiSpeed * 30
@@ -167,14 +187,16 @@ class GameScene: SKScene {
         if let ball = self.ball {
             if ball.shapeNode.position.y < player!.shapeNode.position.y {
                 // Call reset & lose
-                print("Lose")
+                score!.1 += 1
                 resetGame()
+                self.scoreLabel!.text = "You: \(score!.0) \nOpponent: \(score!.1)"
             }
             
             if ball.shapeNode.position.y > aiPlayer!.shapeNode.position.y {
                 // Call reset & win
-                print("Win")
+                score!.0 += 1
                 resetGame()
+                self.scoreLabel!.text = "You: \(score!.0) \nOpponent: \(score!.1)"
             }
         }
         

@@ -31,6 +31,7 @@ class Ball {
         self.physicsBody.restitution = 1.01
         
         self.shapeNode.name = "ball"
+        self.shapeNode.zPosition = 10
         self.shapeNode.fillColor = .blue
         self.shapeNode.position = CGPoint(x:0,y:0)
         self.shapeNode.physicsBody = self.physicsBody

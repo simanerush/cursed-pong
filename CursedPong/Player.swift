@@ -19,6 +19,7 @@ class Player {
         let playerShapeNode = SKShapeNode(rectOf: CGSize.init(width: 170, height: 40))
         playerShapeNode.position = CGPoint(x : 0, y : self.yPosition)
         playerShapeNode.fillColor = .white
+        playerShapeNode.zPosition = 10
         self.shapeNode = playerShapeNode
         
         let playerPhysicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 170, height: 40))
