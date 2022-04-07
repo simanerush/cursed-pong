@@ -17,9 +17,9 @@ class Ball {
     init() {
         self.sensitivity = 3
         self.shapeNode = SKShapeNode(circleOfRadius: 30)
-        self.physicsBody = SKPhysicsBody()
-        self.physicsBody.velocity = CGVector(dx: Int.random(in: 100...500), dy: Int.random(in: 500...1000))
-        
+        self.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        self.physicsBody.velocity = CGVector(dx: 0, dy: -1000)
+        self.physicsBody.collisionBitMask = 0b0001
         if self.shapeNode.position.x > 30 {
             self.physicsBody.velocity.dx = self.physicsBody.velocity.dx * -1
         }

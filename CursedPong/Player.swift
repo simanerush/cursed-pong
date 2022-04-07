@@ -21,10 +21,10 @@ class Player {
         playerShapeNode.fillColor = .white
         self.shapeNode = playerShapeNode
         
-        let playerPhysicsBody = SKPhysicsBody()
+        let playerPhysicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 170, height: 40))
         playerPhysicsBody.affectedByGravity = false
-        playerPhysicsBody.linearDamping = 0
-        playerPhysicsBody.restitution = 1
+        playerPhysicsBody.restitution = 0.75
+        playerPhysicsBody.categoryBitMask = 0b0001
         self.physicsBody = playerPhysicsBody
         self.shapeNode.physicsBody = self.physicsBody
         
