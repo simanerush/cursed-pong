@@ -107,9 +107,7 @@ class GameScene: SKScene {
         //        }
         
         if let paddle = self.player {
-//            paddle.shapeNode.run(SKAction.moveTo(x: pos.x,y: paddle.yPosition, duration: 0))
-//            paddle.shapeNode.run(SKAction.moveTo(x: pos.x, duration: 0))
-            paddle.shapeNode.run(SKAction: Moveto)
+            paddle.shapeNode.run(SKAction.moveTo(x: pos.x, duration: 0))
         }
     }
     
@@ -152,6 +150,12 @@ class GameScene: SKScene {
     }
     
     
+    func resetGame() {
+        self.ball!.shapeNode.run(SKAction.removeFromParent())
+        self.ball = Ball()
+        self.addChild(ball!.shapeNode)
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         if let aiPlayer = self.aiPlayer {
             aiPlayer.update(xPositionDifference: ball!.shapeNode.position.x - aiPlayer.shapeNode.position.x)
@@ -159,6 +163,21 @@ class GameScene: SKScene {
             aiPlayer.shapeNode.position.x += aiPlayer.physicsBody.velocity.dx
             aiPlayer.shapeNode.run(SKAction.moveTo(x: self.ball!.shapeNode.position.x,duration: 0.2))
         }
+        
+        if let ball = self.ball {
+            if ball.shapeNode.position.y < player!.shapeNode.position.y {
+                // Call reset & lose
+                print("Lose")
+                resetGame()
+            }
+            
+            if ball.shapeNode.position.y > aiPlayer!.shapeNode.position.y {
+                // Call reset & win
+                print("Win")
+                resetGame()
+            }
+        }
+        
         // Called before each frame is rendered
     }
 }
