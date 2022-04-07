@@ -26,6 +26,7 @@ class Player {
         playerPhysicsBody.linearDamping = 0
         playerPhysicsBody.restitution = 1
         self.physicsBody = playerPhysicsBody
+        self.shapeNode.physicsBody = self.physicsBody
         
     }
     
