@@ -19,6 +19,7 @@ class Ball {
         self.shapeNode = SKShapeNode(circleOfRadius: 30)
         self.physicsBody = SKPhysicsBody(circleOfRadius: 30)
         self.physicsBody.velocity = CGVector(dx: 0, dy: -1000)
+        self.physicsBody.mass = 0.00
         self.physicsBody.collisionBitMask = 0b0001
         if self.shapeNode.position.x > 30 {
             self.physicsBody.velocity.dx = self.physicsBody.velocity.dx * -1
@@ -26,6 +27,7 @@ class Ball {
         
         self.physicsBody.affectedByGravity = false
         self.physicsBody.linearDamping = 0
+        self.physicsBody.restitution = 1
         
         self.shapeNode.name = "ball"
         self.shapeNode.fillColor = .blue

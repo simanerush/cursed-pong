@@ -61,7 +61,7 @@ class GameScene: SKScene {
             self.addChild(player.shapeNode)
         }
         
-        self.aiPlayer = Opponent(yPosition: self.frame.maxY - 125, aiSpeed: 2)
+        self.aiPlayer = Opponent(yPosition: self.frame.maxY - 125, aiSpeed: 100)
         if let player = self.aiPlayer {
             self.addChild(player.shapeNode)
         }
@@ -142,8 +142,9 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         if let aiPlayer = self.aiPlayer {
-            aiPlayer.update(xPositionDifference: 3)
+            aiPlayer.update(xPositionDifference: ball!.shapeNode.position.x - aiPlayer.shapeNode.position.x)
 //            aiPlayer.physicsBody.velocity.dx = aiPlayer.aiSpeed * 30
+            aiPlayer.shapeNode.position.x += aiPlayer.physicsBody.velocity.dx
         }
         // Called before each frame is rendered
     }

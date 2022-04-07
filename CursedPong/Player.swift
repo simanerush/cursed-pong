@@ -24,6 +24,8 @@ class Player {
         let playerPhysicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 170, height: 40))
         playerPhysicsBody.affectedByGravity = false
         playerPhysicsBody.restitution = 0.75
+        playerPhysicsBody.isDynamic = true
+        playerPhysicsBody.mass = 100
         playerPhysicsBody.categoryBitMask = 0b0001
         self.physicsBody = playerPhysicsBody
         self.shapeNode.physicsBody = self.physicsBody
