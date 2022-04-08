@@ -20,7 +20,7 @@ class Player {
     
     init(yPosition: Double) {
         self.yPosition = yPosition
-        self.width = 100
+        self.width = 500
         self.scale = 1
         self.height = 30
         self.delay = 3
