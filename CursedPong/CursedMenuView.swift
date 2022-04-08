@@ -23,11 +23,11 @@ struct CursedMenuView: View {
 
 struct CursedPong: UIViewRepresentable {
     func makeUIView(context: Context) -> SKView {
-        let sceneView = SKView(frame: CGRect(x:0 , y:0, width: 800, height: 750))
+        let sceneView = SKView()
             if let scene = GameScene(fileNamed: "GameScene") {
               sceneView.showsNodeCount = true
               sceneView.showsFPS = true
-              scene.scaleMode = .aspectFit
+                scene.scaleMode = .aspectFill
               sceneView.presentScene(scene)
             }
         return sceneView
