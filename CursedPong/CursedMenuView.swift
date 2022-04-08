@@ -11,17 +11,15 @@ import SpriteKit
 struct CursedMenuView: View {
     @State var show = false
     var body: some View {
-        Button(action: {
-                    show.toggle()
-                }) {
-                    Text("Go to Cursed Pong")
-                }.fullScreenCover(isPresented: $show) {
-                    CursedPong().edgesIgnoringSafeArea(.all)
-                }
+        NavigationView {
+            NavigationLink("Cursed Pong", destination: CursedPong().navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all))
+        }
+       
     }
 }
 
 struct CursedPong: UIViewRepresentable {
+    
     func makeUIView(context: Context) -> SKView {
         let sceneView = SKView()
             if let scene = GameScene(fileNamed: "GameScene") {
