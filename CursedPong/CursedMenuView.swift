@@ -12,8 +12,8 @@ struct CursedMenuView: View {
     var body: some View {
         NavigationView {
             NavigationLink("Cursed Pong", destination: CursedPong()
-                .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all)).navigationViewStyle(.stack)
-        }
+                .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all))
+        }.navigationViewStyle(.stack)
     }
 }
 
