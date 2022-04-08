@@ -25,7 +25,8 @@ class GameScene: SKScene {
     
     private var score: (UInt, UInt)?
     
-    private var scoreLabel: SKLabelNode?
+    private var scoreLabel1: SKLabelNode?
+    private var scoreLabel2: SKLabelNode?
 
     override func didMove(to view: SKView) {
 // Create a simple red rectangle that's 100x44
@@ -50,16 +51,28 @@ class GameScene: SKScene {
         self.won = false
         self.score = (0, 0)
         
-        self.scoreLabel = SKLabelNode(fontNamed: "ArialMT")
-        if let scoreLabel = scoreLabel {
-            scoreLabel.fontSize = 35
-            scoreLabel.numberOfLines = 2
-            scoreLabel.fontColor = .white
-            scoreLabel.position = CGPoint(x: 0, y: 0)
-            scoreLabel.alpha = 0.0
-            scoreLabel.zPosition = 5
-            scoreLabel.run(SKAction.fadeIn(withDuration: 2.0))
-            self.addChild(scoreLabel)
+        self.scoreLabel1 = SKLabelNode(fontNamed: "ArialMT")
+        if let scoreLabel1 = scoreLabel1 {
+            scoreLabel1.fontSize = 35
+            scoreLabel1.numberOfLines = 2
+            scoreLabel1.fontColor = .white
+            scoreLabel1.position = CGPoint(x: -100, y: 400)
+            scoreLabel1.alpha = 0.0
+            scoreLabel1.zPosition = 5
+            scoreLabel1.run(SKAction.fadeIn(withDuration: 2.0))
+            self.addChild(scoreLabel1)
+        }
+        
+        self.scoreLabel2 = SKLabelNode(fontNamed: "ArialMT")
+        if let scoreLabel2 = scoreLabel2 {
+            scoreLabel2.fontSize = 35
+            scoreLabel2.numberOfLines = 2
+            scoreLabel2.fontColor = .white
+            scoreLabel2.position = CGPoint(x: 100, y: -400)
+            scoreLabel2.alpha = 0.0
+            scoreLabel2.zPosition = 5
+            scoreLabel2.run(SKAction.fadeIn(withDuration: 2.0))
+            self.addChild(scoreLabel2)
         }
         
         let logoLabel = SKLabelNode()
@@ -67,7 +80,7 @@ class GameScene: SKScene {
         logoLabel.fontColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
         logoLabel.text = "C̵̗̘͒͊̆̆͒̽̆̄̀̿̓̍̎͜͝͝ũ̴̯̗͙͕̰͙̫̌̒̓̈́̀̏́̌r̷̛̭̲̳͚̈̀̓̆̆́͂̔͑͑s̵̩͔̦̔͋̏͌͊͊̐̓̈́̈̌͌͘̚ȇ̸̟̺̒̈ḓ̸̨̧̳̣̺̯͋͛͊͐̏͊̚͜ ̵͖̗̭͒̓͂̍̈́̀̍̕͠P̸̡̥͎̳̖̈́͌̾̈̒͆͋̏̚̚ơ̵̧̦̮͍̘̹̪͇͑̌̂̉̓̈n̵̢̜̦͎̟̬̖̭͂̍́̄̐̌͛̀͌g̷̢̮͚̝̞̀̋̈́̏̂̎͂͝"
         logoLabel.numberOfLines = 1
-        logoLabel.position = CGPoint(x: 0, y: 200)
+        logoLabel.position = CGPoint(x: 0, y: 0)
         logoLabel.zPosition = 5
         logoLabel.run(SKAction.fadeIn(withDuration: 2.0))
         self.addChild(logoLabel)
@@ -85,7 +98,7 @@ class GameScene: SKScene {
         //        }
         
         // Create two players
-        self.player = Player(yPosition: self.frame.minY + 75)
+        self.player = Player(yPosition: self.frame.minY + 175)
         if let player = player {
             self.addChild(player.shapeNode)
         }
@@ -173,32 +186,42 @@ class GameScene: SKScene {
         self.ball!.shapeNode.run(SKAction.removeFromParent())
         self.ball = Ball()
         self.addChild(ball!.shapeNode)
+        self.player!.scale = 1
+        self.aiPlayer!.scale = 1
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
-        print(score)
         if let aiPlayer = self.aiPlayer {
             aiPlayer.update(xPositionDifference: ball!.shapeNode.position.x - aiPlayer.shapeNode.position.x)
 //            aiPlayer.physicsBody.velocity.dx = aiPlayer.aiSpeed * 30
             aiPlayer.shapeNode.position.x += aiPlayer.physicsBody.velocity.dx
-            aiPlayer.shapeNode.run(SKAction.moveTo(x: self.ball!.shapeNode.position.x,duration: 0.2))
+            aiPlayer.shapeNode.run(SKAction.moveTo(x: self.ball!.shapeNode.position.x,duration: self.aiPlayer!.delay))
         }
-        
+        if Int.random(in: 0...1000) < 30 {
+            ball?.physicsBody.applyImpulse(CGVector(dx: Int.random(in: -30...30), dy: Int.random(in: -30...30)))
+        }
         if let ball = self.ball {
             if ball.shapeNode.position.y < player!.shapeNode.position.y {
                 // Call reset & lose
                 score!.1 += 1
                 resetGame()
-                self.scoreLabel!.text = "You: \(score!.0) \nOpponent: \(score!.1)"
+                self.scoreLabel1!.text = "Opponent: \(score!.1)"
             }
             
             if ball.shapeNode.position.y > aiPlayer!.shapeNode.position.y {
                 // Call reset & win
                 score!.0 += 1
                 resetGame()
-                self.scoreLabel!.text = "You: \(score!.0) \nOpponent: \(score!.1)"
+                self.scoreLabel2!.text = "You: \(score!.0)"
             }
         }
+        aiPlayer!.delay *= 0.99
+        aiPlayer!.scale *= 0.999
+        player!.scale *= 0.999
+        
+        player!.changeWidth(by: player!.scale)
+        aiPlayer!.changeWidth(by: aiPlayer!.scale)
         
         // Called before each frame is rendered
     }

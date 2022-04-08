@@ -13,16 +13,24 @@ class Player {
     var shapeNode: SKShapeNode
     var physicsBody: SKPhysicsBody
     let yPosition: Double
+    var width: Double
+    var scale: Double
+    var height: Double
+    var delay: Double
     
     init(yPosition: Double) {
         self.yPosition = yPosition
-        let playerShapeNode = SKShapeNode(rectOf: CGSize.init(width: 170, height: 40))
+        self.width = 100
+        self.scale = 1
+        self.height = 30
+        self.delay = 3
+        let playerShapeNode = SKShapeNode(rectOf: CGSize.init(width: self.width, height: self.height))
         playerShapeNode.position = CGPoint(x : 0, y : self.yPosition)
         playerShapeNode.fillColor = .white
         playerShapeNode.zPosition = 10
         self.shapeNode = playerShapeNode
         
-        let playerPhysicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: 170, height: 40))
+        let playerPhysicsBody = SKPhysicsBody(rectangleOf: CGSize.init(width: self.width, height: self.height))
         playerPhysicsBody.affectedByGravity = false
         playerPhysicsBody.restitution = 1
         playerPhysicsBody.isDynamic = false
@@ -34,4 +42,8 @@ class Player {
         
     }
     
+    func changeWidth(by value: Double) {
+        shapeNode.xScale = value
+        physicsBody.node!.xScale = value
+    }
 }
