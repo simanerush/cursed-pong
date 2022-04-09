@@ -13,7 +13,7 @@ struct CursedMenuView: View {
         NavigationView {
             NavigationLink("Cursed Pong", destination: CursedPong()
                 .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all))
-        }.navigationViewStyle(.stack)
+        }.navigationViewStyle(.stack).navigationBarHidden(true)
     }
 }
 
