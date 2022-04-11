@@ -216,7 +216,7 @@ class GameScene: SKScene {
                 self.scoreLabel2!.text = "You: \(score!.0)"
             }
         }
-        aiPlayer!.delay *= 0.99
+        aiPlayer!.delay *= 0.9999
         aiPlayer!.scale *= 0.999
         player!.scale *= 0.999
         
