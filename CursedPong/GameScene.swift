@@ -98,12 +98,12 @@ class GameScene: SKScene {
         //        }
         
         // Create two players
-        self.player = Player(yPosition: self.frame.minY + 175)
+        self.player = Player(yPosition: self.frame.minY + self.frame.size.height * 0.01)
         if let player = player {
             self.addChild(player.shapeNode)
         }
         
-        self.aiPlayer = Opponent(yPosition: self.frame.maxY - 125, aiSpeed: 100)
+        self.aiPlayer = Opponent(yPosition: self.frame.maxY - self.frame.size.height*0.1, aiSpeed: 100)
         if let player = self.aiPlayer {
             self.addChild(player.shapeNode)
         }
