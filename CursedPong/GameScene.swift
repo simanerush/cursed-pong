@@ -198,10 +198,13 @@ class GameScene: SKScene {
             aiPlayer.shapeNode.position.x += aiPlayer.physicsBody.velocity.dx
             aiPlayer.shapeNode.run(SKAction.moveTo(x: self.ball!.shapeNode.position.x,duration: self.aiPlayer!.delay))
         }
-        if Int.random(in: 0...1000) < 30 {
-            ball?.physicsBody.applyImpulse(CGVector(dx: Int.random(in: -30...30), dy: Int.random(in: -30...30)))
-        }
+//        if Int.random(in: 0...1000) < 30 {
+//            ball?.physicsBody.applyImpulse(CGVector(dx: Int.random(in: -30...30), dy: Int.random(in: -30...30)))
+//        }
         if let ball = self.ball {
+            if ball.shapeNode.position.y < player!.shapeNode.position.y + player!.shapeNode.frame.height + ball.shapeNode.frame.height {
+                ball.physicsBody.applyImpulse(CGVector(dx: -player!.shapeNode.position.x + ball.shapeNode.position.x, dy: 0))
+            }
             if ball.shapeNode.position.y < player!.shapeNode.position.y {
                 // Call reset & lose
                 score!.1 += 1
