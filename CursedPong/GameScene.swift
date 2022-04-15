@@ -98,7 +98,7 @@ class GameScene: SKScene {
         //        }
         
         // Create two players
-        self.player = Player(yPosition: self.frame.minY + self.frame.size.height * 0.01)
+        self.player = Player(yPosition: self.frame.minY + self.frame.size.height * 0.1)
         if let player = player {
             self.addChild(player.shapeNode)
         }
