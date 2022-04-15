@@ -6,8 +6,9 @@
 //
 
 import SpriteKit
+import WatchKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, WKCrownDelegate {
     
     var button: SKNode! = nil
     //    private var label : SKLabelNode?
@@ -30,6 +31,10 @@ class GameScene: SKScene {
     
     override func sceneDidLoad() {
         
+        let crownSequencer = WKExtension.shared().rootInterfaceController!.crownSequencer
+        crownSequencer.delegate = self
+        crownSequencer.focus()
+        
         let border = SKNode()
         
         let borderPhysicsbody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -48,10 +53,10 @@ class GameScene: SKScene {
         
         self.scoreLabel1 = SKLabelNode(fontNamed: "ArialMT")
         if let scoreLabel1 = scoreLabel1 {
-            scoreLabel1.fontSize = 35
+            scoreLabel1.fontSize = 25
             scoreLabel1.numberOfLines = 2
             scoreLabel1.fontColor = .white
-            scoreLabel1.position = CGPoint(x: -100, y: 400)
+            scoreLabel1.position = CGPoint(x: -80, y: 50)
             scoreLabel1.alpha = 0.0
             scoreLabel1.zPosition = 5
             scoreLabel1.run(SKAction.fadeIn(withDuration: 2.0))
@@ -60,10 +65,10 @@ class GameScene: SKScene {
         
         self.scoreLabel2 = SKLabelNode(fontNamed: "ArialMT")
         if let scoreLabel2 = scoreLabel2 {
-            scoreLabel2.fontSize = 35
+            scoreLabel2.fontSize = 25
             scoreLabel2.numberOfLines = 2
             scoreLabel2.fontColor = .white
-            scoreLabel2.position = CGPoint(x: 100, y: -400)
+            scoreLabel2.position = CGPoint(x: 80, y: -50)
             scoreLabel2.alpha = 0.0
             scoreLabel2.zPosition = 5
             scoreLabel2.run(SKAction.fadeIn(withDuration: 2.0))
@@ -93,12 +98,12 @@ class GameScene: SKScene {
         //        }
         
         // Create two players
-        self.player = Player(yPosition: self.frame.minY + self.frame.size.height * 0.01)
+        self.player = Player(yPosition: 40 + self.frame.minY + self.frame.size.height * 0.01)
         if let player = player {
             self.addChild(player.shapeNode)
         }
         
-        self.aiPlayer = Opponent(yPosition: self.frame.maxY - self.frame.size.height*0.1, aiSpeed: 100)
+        self.aiPlayer = Opponent(yPosition: -40 + self.frame.maxY - self.frame.size.height*0.1, aiSpeed: 100)
         if let player = self.aiPlayer {
             self.addChild(player.shapeNode)
         }
@@ -111,6 +116,17 @@ class GameScene: SKScene {
         }
     }
     
+    func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
+        self.player!.shapeNode.run(SKAction.moveBy(x: rotationalDelta * 200, y: 0, duration: 0))
+        print(rotationalDelta)
+    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        //        if let label = self.label {
+//        //            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+//        //        }
+//
+//        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+//    }
     func touchMoved(toPoint pos : CGPoint) {
         if let paddle = self.player {
             paddle.shapeNode.run(SKAction.moveTo(x: pos.x, duration: 0))
@@ -138,7 +154,7 @@ class GameScene: SKScene {
         //        }
         if let ball = self.ball {
             if ball.shapeNode.position.y < player!.shapeNode.position.y + player!.shapeNode.frame.height + ball.shapeNode.frame.height {
-                ball.physicsBody.applyImpulse(CGVector(dx: -player!.shapeNode.position.x + ball.shapeNode.position.x, dy: 0))
+                ball.physicsBody.applyImpulse(CGVector(dx: 0.1 * (-player!.shapeNode.position.x + ball.shapeNode.position.x), dy: 0))
             }
             if ball.shapeNode.position.y < player!.shapeNode.position.y {
                 // Call reset & lose
@@ -154,9 +170,10 @@ class GameScene: SKScene {
                 self.scoreLabel2!.text = "You: \(score!.0)"
             }
         }
-        aiPlayer!.delay *= 0.9999
+        aiPlayer!.delay *= 0.99
         aiPlayer!.scale *= 0.999
         player!.scale *= 0.999
+        player!.shapeNode.position.x += 0.01
         
         player!.changeWidth(by: player!.scale)
         aiPlayer!.changeWidth(by: aiPlayer!.scale)
