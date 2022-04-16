@@ -11,9 +11,30 @@ import SpriteKit
 struct CursedMenuView: View {
     var body: some View {
         NavigationView {
-            NavigationLink("Cursed Pong", destination: CursedPong()
-                .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all))
-        }.navigationViewStyle(.stack).navigationBarHidden(true)
+            ZStack {
+                Color.gray.edgesIgnoringSafeArea(.all)
+                VStack {
+                    Spacer()
+                    NavigationLink(destination: CursedPong()
+                        .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all)) {
+                            Text("Play Cursed Pong").modifier(CursedTextModifier())
+                        }
+                        .foregroundStyle(.green)
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Text("Leaderboard").modifier(CursedTextModifier())
+                    }
+                    Spacer()
+                }
+                
+            }
+            .navigationTitle("")
+            .navigationBarHidden(true)
+        }
+        .navigationViewStyle(.stack)
+        
     }
 }
 
@@ -29,6 +50,15 @@ struct CursedPong: UIViewRepresentable {
         return sceneView
     }
     func updateUIView(_ uiView: SKView, context: Context) {
+        
+    }
+}
+
+struct CursedTextModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(Color.green)
         
     }
 }
