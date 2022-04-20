@@ -7,15 +7,17 @@
 
 import SwiftUI
 import SpriteKit
+import SceneKit
 
 struct CursedMenuView: View {
+    @State var label: String
     var body: some View {
         NavigationView {
             ZStack {
                 Color.gray.edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()
-                    NavigationLink(destination: CursedPong()
+                    NavigationLink(destination: CursedSceneView()
                         .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all)) {
                             Text("Play Cursed Pong").modifier(CursedTextModifier())
                         }
@@ -24,7 +26,9 @@ struct CursedMenuView: View {
                     Button {
                         
                     } label: {
-                        Text("Leaderboard").modifier(CursedTextModifier())
+                        Text(label).modifier(CursedTextModifier())
+                    }.onAppear {
+                     label = String(defaults.integer(forKey: defaultsKey))
                     }
                     Spacer()
                 }
@@ -37,6 +41,7 @@ struct CursedMenuView: View {
         
     }
 }
+    
 
 struct CursedPong: UIViewRepresentable {
     func makeUIView(context: Context) -> SKView {
@@ -54,6 +59,21 @@ struct CursedPong: UIViewRepresentable {
     }
 }
 
+struct CursedSceneView: UIViewRepresentable {
+    func makeUIView(context: Context) -> SCNView {
+        let sceneView = SCNView()
+        if let scene = SCNScene(named: "CursedScene") {
+//              sceneView.showsNodeCount = true
+//              sceneView.showsFPS = true
+            sceneView.present(scene, with: .crossFade(withDuration: 1), incomingPointOfView: SCNNode())
+            }
+        return sceneView
+    }
+    func updateUIView(_ scnView: SCNView, context: Context) {
+        
+    }
+}
+
 struct CursedTextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -65,6 +85,6 @@ struct CursedTextModifier: ViewModifier {
 
 struct CursedMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        CursedMenuView()
+        CursedMenuView(label: "0")
     }
 }

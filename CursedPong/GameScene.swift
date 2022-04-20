@@ -35,6 +35,7 @@ class GameScene: SKScene {
 //        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY);
 //        self.addChild(button)
         
+        
         let border = SKNode()
         
         let borderPhysicsbody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -203,13 +204,17 @@ class GameScene: SKScene {
 //        }
         if let ball = self.ball {
             if ball.shapeNode.position.y < player!.shapeNode.position.y + player!.shapeNode.frame.height + ball.shapeNode.frame.height {
-                ball.physicsBody.applyImpulse(CGVector(dx: -player!.shapeNode.position.x + ball.shapeNode.position.x, dy: 0))
+                ball.physicsBody.applyImpulse(CGVector(dx: (-player!.shapeNode.position.x + ball.shapeNode.position.x)/10, dy: 0))
             }
             if ball.shapeNode.position.y < player!.shapeNode.position.y {
                 // Call reset & lose
                 score!.1 += 1
                 resetGame()
                 self.scoreLabel1!.text = "Opponent: \(score!.1)"
+                if score!.1 >= 10 {
+                    self.scoreLabel1!.text = "Opponent wins"
+                    score!.1 = 0
+                }
             }
             
             if ball.shapeNode.position.y > aiPlayer!.shapeNode.position.y {
@@ -217,6 +222,19 @@ class GameScene: SKScene {
                 score!.0 += 1
                 resetGame()
                 self.scoreLabel2!.text = "You: \(score!.0)"
+                if score!.0 >= 10 {
+                    self.scoreLabel2!.text = "You win"
+                    score!.0 = 0
+                    self.scoreLabel2!.text = "You: \(score!.0)"
+                    numberOfWins += 1
+                    defaults.set(numberOfWins, forKey: defaultsKey)
+                    print(defaults.integer(forKey:defaultsKey))
+//                    let reveal = SKTransition.reveal(with: .down,
+//                                                             duration: 1)
+//                    let newScene = CursedScene(size: CGSize(width: 1024, height: 768))
+//                            
+//                    scene.view.presentScene(newScene, transition: reveal)
+                }
             }
         }
         aiPlayer!.delay *= 0.9999

@@ -42,9 +42,14 @@ import SwiftUI
 
 @main
 struct CursedPongApp: App {
+    
     var body: some Scene {
         WindowGroup {
-           CursedMenuView()
+           CursedMenuView(label: String(defaults.integer(forKey: defaultsKey)))
         }
     }
 }
+
+var defaults = UserDefaults.standard
+var defaultsKey = "wins"
+var numberOfWins = defaults.integer(forKey: defaultsKey)

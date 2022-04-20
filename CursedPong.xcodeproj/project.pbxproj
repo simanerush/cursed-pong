@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231787A8280F819400790735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C79FA027FA6ECE003578EC /* Assets.xcassets */; };
+		231787A9280F819700790735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D36CD92808F2500090B8B5 /* Assets.xcassets */; };
 		23C79F9427FA6ECB003578EC /* CursedPongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C79F9327FA6ECB003578EC /* CursedPongApp.swift */; };
 		23C79F9627FA6ECB003578EC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 23C79F9527FA6ECB003578EC /* GameScene.sks */; };
 		23C79F9827FA6ECB003578EC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 23C79F9727FA6ECB003578EC /* Actions.sks */; };
 		23C79F9A27FA6ECB003578EC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C79F9927FA6ECB003578EC /* GameScene.swift */; };
 		23C79F9C27FA6ECB003578EC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C79F9B27FA6ECB003578EC /* GameViewController.swift */; };
 		23C79F9F27FA6ECB003578EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C79F9D27FA6ECB003578EC /* Main.storyboard */; };
-		23C79FA127FA6ECE003578EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C79FA027FA6ECE003578EC /* Assets.xcassets */; };
 		23C79FA427FA6ECE003578EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C79FA227FA6ECE003578EC /* LaunchScreen.storyboard */; };
 		23C8D6C12808F7A60077D934 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8D6C02808F7A60077D934 /* Opponent.swift */; };
 		23C8D6C42808F7AC0077D934 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8D6C22808F7AC0077D934 /* Player.swift */; };
 		23C8D6C52808F7AC0077D934 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8D6C32808F7AC0077D934 /* Ball.swift */; };
+		23D29A40280F8E4F009DBDB5 /* CursedScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 23D29A3F280F8E4F009DBDB5 /* CursedScene.scn */; };
+		23D29A42280F8F62009DBDB5 /* CursedScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D29A41280F8F62009DBDB5 /* CursedScene.storyboard */; };
+		23D29A44280F8F8B009DBDB5 /* CursedSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D29A43280F8F8B009DBDB5 /* CursedSceneViewController.swift */; };
 		23D36CD82808F24F0090B8B5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D36CD62808F24F0090B8B5 /* Interface.storyboard */; };
-		23D36CDA2808F2500090B8B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D36CD92808F2500090B8B5 /* Assets.xcassets */; };
 		23D36CE02808F2500090B8B5 /* CursedPongWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 23D36CDF2808F2500090B8B5 /* CursedPongWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		23D36CE52808F2500090B8B5 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D36CE42808F2500090B8B5 /* InterfaceController.swift */; };
 		23D36CE72808F2500090B8B5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 23D36CE62808F2500090B8B5 /* GameScene.sks */; };
@@ -90,6 +93,9 @@
 		23C8D6C02808F7A60077D934 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		23C8D6C22808F7AC0077D934 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		23C8D6C32808F7AC0077D934 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		23D29A3F280F8E4F009DBDB5 /* CursedScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = CursedScene.scn; sourceTree = "<group>"; };
+		23D29A41280F8F62009DBDB5 /* CursedScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CursedScene.storyboard; sourceTree = "<group>"; };
+		23D29A43280F8F8B009DBDB5 /* CursedSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursedSceneViewController.swift; sourceTree = "<group>"; };
 		23D36CD42808F24F0090B8B5 /* CursedPongWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CursedPongWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D36CD72808F24F0090B8B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		23D36CD92808F2500090B8B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +161,9 @@
 				8403B41B27FCD046000317F7 /* Ball.swift */,
 				23C79F9327FA6ECB003578EC /* CursedPongApp.swift */,
 				84B4FA2027FFC50F00DD80CB /* CursedMenuView.swift */,
+				23D29A3F280F8E4F009DBDB5 /* CursedScene.scn */,
+				23D29A41280F8F62009DBDB5 /* CursedScene.storyboard */,
+				23D29A43280F8F8B009DBDB5 /* CursedSceneViewController.swift */,
 				23C79F9527FA6ECB003578EC /* GameScene.sks */,
 				23C79F9727FA6ECB003578EC /* Actions.sks */,
 				23C79F9927FA6ECB003578EC /* GameScene.swift */,
@@ -297,10 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				23C79F9F27FA6ECB003578EC /* Main.storyboard in Resources */,
+				23D29A40280F8E4F009DBDB5 /* CursedScene.scn in Resources */,
 				23C79F9627FA6ECB003578EC /* GameScene.sks in Resources */,
-				23C79FA127FA6ECE003578EC /* Assets.xcassets in Resources */,
 				23C79FA427FA6ECE003578EC /* LaunchScreen.storyboard in Resources */,
 				23C79F9827FA6ECB003578EC /* Actions.sks in Resources */,
+				23D29A42280F8F62009DBDB5 /* CursedScene.storyboard in Resources */,
+				231787A8280F819400790735 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D36CDA2808F2500090B8B5 /* Assets.xcassets in Resources */,
+				231787A9280F819700790735 /* Assets.xcassets in Resources */,
 				23D36CD82808F24F0090B8B5 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +345,7 @@
 				8403B41E27FD1679000317F7 /* Opponent.swift in Sources */,
 				8403B41C27FCD046000317F7 /* Ball.swift in Sources */,
 				23C79F9C27FA6ECB003578EC /* GameViewController.swift in Sources */,
+				23D29A44280F8F8B009DBDB5 /* CursedSceneViewController.swift in Sources */,
 				23C79F9427FA6ECB003578EC /* CursedPongApp.swift in Sources */,
 				84B4FA2127FFC50F00DD80CB /* CursedMenuView.swift in Sources */,
 			);
