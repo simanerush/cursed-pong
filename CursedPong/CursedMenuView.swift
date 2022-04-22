@@ -17,7 +17,7 @@ struct CursedMenuView: View {
                 Color.gray.edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()
-                    NavigationLink(destination: CursedSceneView()
+                    NavigationLink(destination: CursedPong()
                         .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all)) {
                             Text("Play Cursed Pong").modifier(CursedTextModifier())
                         }

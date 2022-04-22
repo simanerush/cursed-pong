@@ -20,7 +20,6 @@
 		23C8D6C42808F7AC0077D934 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8D6C22808F7AC0077D934 /* Player.swift */; };
 		23C8D6C52808F7AC0077D934 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8D6C32808F7AC0077D934 /* Ball.swift */; };
 		23D29A40280F8E4F009DBDB5 /* CursedScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = 23D29A3F280F8E4F009DBDB5 /* CursedScene.scn */; };
-		23D29A42280F8F62009DBDB5 /* CursedScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D29A41280F8F62009DBDB5 /* CursedScene.storyboard */; };
 		23D29A44280F8F8B009DBDB5 /* CursedSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D29A43280F8F8B009DBDB5 /* CursedSceneViewController.swift */; };
 		23D36CD82808F24F0090B8B5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D36CD62808F24F0090B8B5 /* Interface.storyboard */; };
 		23D36CE02808F2500090B8B5 /* CursedPongWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 23D36CDF2808F2500090B8B5 /* CursedPongWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -32,6 +31,7 @@
 		23D36CEF2808F2500090B8B5 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D36CEE2808F2500090B8B5 /* ComplicationController.swift */; };
 		23D36CF12808F2510090B8B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D36CF02808F2510090B8B5 /* Assets.xcassets */; };
 		23D36CF62808F2510090B8B5 /* CursedPongWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 23D36CD42808F24F0090B8B5 /* CursedPongWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		23D7D4552813256000A35787 /* CursedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7D4542813256000A35787 /* CursedScene.swift */; };
 		8403B41A27FCD029000317F7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B41927FCD029000317F7 /* Player.swift */; };
 		8403B41C27FCD046000317F7 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B41B27FCD046000317F7 /* Ball.swift */; };
 		8403B41E27FD1679000317F7 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403B41D27FD1679000317F7 /* Opponent.swift */; };
@@ -94,7 +94,6 @@
 		23C8D6C22808F7AC0077D934 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		23C8D6C32808F7AC0077D934 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		23D29A3F280F8E4F009DBDB5 /* CursedScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = CursedScene.scn; sourceTree = "<group>"; };
-		23D29A41280F8F62009DBDB5 /* CursedScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CursedScene.storyboard; sourceTree = "<group>"; };
 		23D29A43280F8F8B009DBDB5 /* CursedSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursedSceneViewController.swift; sourceTree = "<group>"; };
 		23D36CD42808F24F0090B8B5 /* CursedPongWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CursedPongWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D36CD72808F24F0090B8B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		23D36CF02808F2510090B8B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23D36CF22808F2510090B8B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23D36CF32808F2510090B8B5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		23D7D4542813256000A35787 /* CursedScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursedScene.swift; sourceTree = "<group>"; };
 		8403B41927FCD029000317F7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8403B41B27FCD046000317F7 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		8403B41D27FD1679000317F7 /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				23C79F9327FA6ECB003578EC /* CursedPongApp.swift */,
 				84B4FA2027FFC50F00DD80CB /* CursedMenuView.swift */,
 				23D29A3F280F8E4F009DBDB5 /* CursedScene.scn */,
-				23D29A41280F8F62009DBDB5 /* CursedScene.storyboard */,
+				23D7D4542813256000A35787 /* CursedScene.swift */,
 				23D29A43280F8F8B009DBDB5 /* CursedSceneViewController.swift */,
 				23C79F9527FA6ECB003578EC /* GameScene.sks */,
 				23C79F9727FA6ECB003578EC /* Actions.sks */,
@@ -310,7 +310,6 @@
 				23C79F9627FA6ECB003578EC /* GameScene.sks in Resources */,
 				23C79FA427FA6ECE003578EC /* LaunchScreen.storyboard in Resources */,
 				23C79F9827FA6ECB003578EC /* Actions.sks in Resources */,
-				23D29A42280F8F62009DBDB5 /* CursedScene.storyboard in Resources */,
 				231787A8280F819400790735 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +344,7 @@
 				8403B41E27FD1679000317F7 /* Opponent.swift in Sources */,
 				8403B41C27FCD046000317F7 /* Ball.swift in Sources */,
 				23C79F9C27FA6ECB003578EC /* GameViewController.swift in Sources */,
+				23D7D4552813256000A35787 /* CursedScene.swift in Sources */,
 				23D29A44280F8F8B009DBDB5 /* CursedSceneViewController.swift in Sources */,
 				23C79F9427FA6ECB003578EC /* CursedPongApp.swift in Sources */,
 				84B4FA2127FFC50F00DD80CB /* CursedMenuView.swift in Sources */,

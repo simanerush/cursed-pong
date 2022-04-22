@@ -13,7 +13,7 @@ class CursedSceneViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let view = self.view as! SCNSceneRenderer? {
+        if let view = self.view as! SCNView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SCNScene(named: "CursedScene") {
                 // Set the scale mode to scale to fit the window

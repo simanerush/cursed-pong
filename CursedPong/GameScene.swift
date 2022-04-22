@@ -27,6 +27,7 @@ class GameScene: SKScene {
     
     private var scoreLabel1: SKLabelNode?
     private var scoreLabel2: SKLabelNode?
+    var currentViewController:UIViewController=UIApplication.shared.keyWindow!.rootViewController!
 
     override func didMove(to view: SKView) {
 // Create a simple red rectangle that's 100x44
@@ -37,6 +38,8 @@ class GameScene: SKScene {
         
         
         let border = SKNode()
+        
+       
         
         let borderPhysicsbody = SKPhysicsBody(edgeLoopFrom: self.frame)
         borderPhysicsbody.friction = 0
@@ -222,18 +225,16 @@ class GameScene: SKScene {
                 score!.0 += 1
                 resetGame()
                 self.scoreLabel2!.text = "You: \(score!.0)"
-                if score!.0 >= 10 {
+                if score!.0 >= 1 {
                     self.scoreLabel2!.text = "You win"
                     score!.0 = 0
                     self.scoreLabel2!.text = "You: \(score!.0)"
                     numberOfWins += 1
                     defaults.set(numberOfWins, forKey: defaultsKey)
                     print(defaults.integer(forKey:defaultsKey))
-//                    let reveal = SKTransition.reveal(with: .down,
-//                                                             duration: 1)
-//                    let newScene = CursedScene(size: CGSize(width: 1024, height: 768))
-//                            
-//                    scene.view.presentScene(newScene, transition: reveal)
+                    
+                    currentViewController.present(CursedSceneViewController(), animated: false)
+                    //scene!.view.prese(newScene, transition: reveal)
                 }
             }
         }
