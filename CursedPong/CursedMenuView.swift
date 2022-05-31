@@ -37,8 +37,8 @@ struct CursedPong: UIViewRepresentable {
     func makeUIView(context: Context) -> SKView {
         let sceneView = SKView()
             if let scene = GameScene(fileNamed: "GameScene") {
-              sceneView.showsNodeCount = true
-              sceneView.showsFPS = true
+              sceneView.showsNodeCount = false
+              sceneView.showsFPS = false
                 scene.scaleMode = .aspectFill
               sceneView.presentScene(scene)
             }
