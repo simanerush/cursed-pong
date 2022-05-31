@@ -21,12 +21,7 @@ struct CursedMenuView: View {
                         }
                         .foregroundStyle(.green)
                     Spacer()
-//                    Button {
-//                        
-//                    } label: {
-//                        Text("Leaderboard").modifier(CursedTextModifier())
-//                    }
-//                    Spacer()
+                    Text("Made by Sima and Harrison").font(.caption)
                 }
                 
             }
