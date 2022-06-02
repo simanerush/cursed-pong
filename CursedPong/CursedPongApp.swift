@@ -44,7 +44,10 @@ import SwiftUI
 struct CursedPongApp: App {
     var body: some Scene {
         WindowGroup {
-           CursedMenuView()
+            CursedMenuView()
+                .onAppear {
+                    MusicPlayer.shared.startBackgroundMusic()
+            }
         }
     }
 }

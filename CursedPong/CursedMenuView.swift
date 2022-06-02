@@ -21,7 +21,10 @@ struct CursedMenuView: View {
                         }
                         .foregroundStyle(.green)
                     Spacer()
-                    Text("Made by Sima and Harrison").font(.caption)
+                    VStack {
+                        Text("Made by Sima and Harrison").font(.caption)
+                        Text("➰ Music by Aadit ➰").font(.caption)
+                    }
                 }
                 
             }
