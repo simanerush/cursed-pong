@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232D32912877DFA100157E12 /* BallColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232D32902877DFA100157E12 /* BallColorPickerView.swift */; };
 		23C79F9427FA6ECB003578EC /* CursedPongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C79F9327FA6ECB003578EC /* CursedPongApp.swift */; };
 		23C79F9627FA6ECB003578EC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 23C79F9527FA6ECB003578EC /* GameScene.sks */; };
 		23C79F9827FA6ECB003578EC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 23C79F9727FA6ECB003578EC /* Actions.sks */; };
@@ -80,6 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		232D32902877DFA100157E12 /* BallColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallColorPickerView.swift; sourceTree = "<group>"; };
 		23C79F9027FA6ECB003578EC /* Cursed Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cursed Pong.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C79F9327FA6ECB003578EC /* CursedPongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursedPongApp.swift; sourceTree = "<group>"; };
 		23C79F9527FA6ECB003578EC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				8403B41B27FCD046000317F7 /* Ball.swift */,
 				23C79F9327FA6ECB003578EC /* CursedPongApp.swift */,
 				84B4FA2027FFC50F00DD80CB /* CursedMenuView.swift */,
+				232D32902877DFA100157E12 /* BallColorPickerView.swift */,
 				23C79F9527FA6ECB003578EC /* GameScene.sks */,
 				23C79F9727FA6ECB003578EC /* Actions.sks */,
 				23C79F9927FA6ECB003578EC /* GameScene.swift */,
@@ -278,7 +281,7 @@
 				};
 			};
 			buildConfigurationList = 23C79F8B27FA6ECB003578EC /* Build configuration list for PBXProject "CursedPong" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -340,6 +343,7 @@
 				23C79F9A27FA6ECB003578EC /* GameScene.swift in Sources */,
 				8403B41E27FD1679000317F7 /* Opponent.swift in Sources */,
 				8403B41C27FCD046000317F7 /* Ball.swift in Sources */,
+				232D32912877DFA100157E12 /* BallColorPickerView.swift in Sources */,
 				23C79F9C27FA6ECB003578EC /* GameViewController.swift in Sources */,
 				23C79F9427FA6ECB003578EC /* CursedPongApp.swift in Sources */,
 				23CB9C7C28485EB800788110 /* CursedMusicPlayer.swift in Sources */,
@@ -538,7 +542,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong;
 				PRODUCT_NAME = "Cursed Pong";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -566,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong;
 				PRODUCT_NAME = "Cursed Pong";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -593,7 +597,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -623,7 +627,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -649,7 +653,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = CursedPongWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.CursedPong;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -675,7 +679,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = CursedPongWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.simanerush.CursedPong;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

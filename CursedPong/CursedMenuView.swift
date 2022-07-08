@@ -9,17 +9,29 @@ import SwiftUI
 import SpriteKit
 
 struct CursedMenuView: View {
+    @State var ballColor = Color.blue
+    @State var colorPickerTapped = false
+    
     var body: some View {
         NavigationView {
             ZStack {
                 Color.gray.edgesIgnoringSafeArea(.all)
                 VStack {
+                    NavigationLink(destination:  BallColorPickerView(ballColor: $ballColor), isActive: $colorPickerTapped, label: {})
                     Spacer()
-                    NavigationLink(destination: CursedPong()
+                    NavigationLink(destination: CursedPong(ballColor: UIColor(ballColor))
                         .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all)) {
                             Text("Play Cursed Pong").modifier(CursedTextModifier())
                         }
                         .foregroundStyle(.green)
+                    Spacer()
+                    Button {
+                       colorPickerTapped = true
+                    } label: {
+                        Text("Change ball color")
+                            .modifier(CursedTextModifier())
+                    }
+                    
                     Spacer()
                     VStack {
                         Text("Made by Sima and Harrison").font(.caption)
@@ -37,6 +49,8 @@ struct CursedMenuView: View {
 }
 
 struct CursedPong: UIViewRepresentable {
+    var ballColor: UIColor
+    
     func makeUIView(context: Context) -> SKView {
         let sceneView = SKView()
             if let scene = GameScene(fileNamed: "GameScene") {
