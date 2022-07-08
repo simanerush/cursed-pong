@@ -107,6 +107,7 @@
 		2320332B2877F0F90089E6F1 /* CursedMusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursedMusicPlayer.swift; sourceTree = "<group>"; };
 		2320332C2877F0F90089E6F1 /* CursedMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursedMenuView.swift; sourceTree = "<group>"; };
 		2320332D2877F0F90089E6F1 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		23AD40AE2877F4A500FC864A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		23C79F9027FA6ECB003578EC /* Cursed Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cursed Pong.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C79F9327FA6ECB003578EC /* CursedPongApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursedPongApp.swift; sourceTree = "<group>"; };
 		23C79F9527FA6ECB003578EC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 		23C79F9227FA6ECB003578EC /* CursedPong */ = {
 			isa = PBXGroup;
 			children = (
+				23AD40AE2877F4A500FC864A /* Info.plist */,
 				232033232877F0F90089E6F1 /* Actions.sks */,
 				232033222877F0F90089E6F1 /* Assets.xcassets */,
 				2320332D2877F0F90089E6F1 /* Ball.swift */,
@@ -664,9 +666,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QJZL455652;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CursedPong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -694,9 +696,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QJZL455652;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CursedPong/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
