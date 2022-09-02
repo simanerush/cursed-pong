@@ -96,11 +96,6 @@ class GameScene: SKScene {
         }
     }
     
-    func goToGameScene() {
-        let gameScene: GameScene = GameScene(size: CGSize(width: 1920, height: 1080)) // create your new scene
-        self.view!.presentScene(gameScene)
-    }
-    
     func touchDown(atPoint pos : CGPoint) {
     
     }
@@ -148,38 +143,36 @@ class GameScene: SKScene {
         
     }
     
-    override func update(_ currentTime: TimeInterval) {
-        if let aiPlayer = self.aiPlayer {
-            aiPlayer.update(xPositionDifference: ball!.shapeNode.position.x - aiPlayer.shapeNode.position.x)
-            aiPlayer.shapeNode.position.x += aiPlayer.physicsBody.velocity.dx
-            aiPlayer.shapeNode.run(SKAction.moveTo(x: self.ball!.shapeNode.position.x,duration: self.aiPlayer!.delay))
-        }
-        
-        if let ball = self.ball {
-            if ball.shapeNode.position.y < player!.shapeNode.position.y + player!.shapeNode.frame.height + ball.shapeNode.frame.height {
-                ball.physicsBody.applyImpulse(CGVector(dx: -player!.shapeNode.position.x + ball.shapeNode.position.x, dy: 0))
-            }
-            if ball.shapeNode.position.y < player!.shapeNode.position.y {
-                // Call reset & lose
-                score!.1 += 1
-                resetGame()
-                self.scoreLabel1!.text = "Opponent: \(score!.1)"
-            }
-            
-            if ball.shapeNode.position.y > aiPlayer!.shapeNode.position.y {
-                // Call reset & win
-                score!.0 += 1
-                resetGame()
-                self.scoreLabel2!.text = "You: \(score!.0)"
-            }
-        }
-        aiPlayer!.delay *= 0.9999
-        aiPlayer!.scale *= 0.999
-        player!.scale *= 0.999
-        
-        player!.changeWidth(by: player!.scale)
-        aiPlayer!.changeWidth(by: aiPlayer!.scale)
-        
-        // Called before each frame is rendered
-    }
+  override func update(_ currentTime: TimeInterval) {
+      if let aiPlayer = self.aiPlayer {
+          aiPlayer.update(xPositionDifference: ball!.shapeNode.position.x - aiPlayer.shapeNode.position.x)
+          aiPlayer.shapeNode.position.x += aiPlayer.physicsBody.velocity.dx
+          aiPlayer.shapeNode.run(SKAction.moveTo(x: self.ball!.shapeNode.position.x,duration: self.aiPlayer!.delay))
+      }
+      if let ball = self.ball {
+          if ball.shapeNode.position.y < player!.shapeNode.position.y + player!.shapeNode.frame.height + ball.shapeNode.frame.height {
+              ball.physicsBody.applyImpulse(CGVector(dx: 0.1 * (-player!.shapeNode.position.x + ball.shapeNode.position.x), dy: 0))
+          }
+          if ball.shapeNode.position.y < player!.shapeNode.position.y {
+              // Call reset & lose
+              score!.1 += 1
+              resetGame()
+              self.scoreLabel1!.text = "Opponent: \(score!.1)"
+          }
+
+          if ball.shapeNode.position.y > aiPlayer!.shapeNode.position.y {
+              // Call reset & win
+              score!.0 += 1
+              resetGame()
+              self.scoreLabel2!.text = "You: \(score!.0)"
+          }
+      }
+      aiPlayer!.delay *= 0.99
+      aiPlayer!.scale *= 0.999
+      player!.scale *= 0.999
+      player!.shapeNode.position.x += 0.01
+
+      player!.changeWidth(by: player!.scale)
+      aiPlayer!.changeWidth(by: aiPlayer!.scale)
+  }
 }

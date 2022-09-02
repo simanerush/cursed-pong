@@ -15,7 +15,7 @@ struct CursedMenuView: View {
                 Color.gray.edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()
-                    NavigationLink(destination: CursedPong()) {
+                  NavigationLink(destination: CursedPong().ignoresSafeArea()) {
                             Text("Play Cursed Pong").modifier(CursedTextModifier())
                         }
                         .foregroundStyle(.green)
@@ -42,7 +42,7 @@ struct CursedPong: UIViewRepresentable {
             if let scene = GameScene(fileNamed: "GameScene") {
               sceneView.showsNodeCount = false
               sceneView.showsFPS = false
-                scene.scaleMode = .aspectFill
+                scene.scaleMode = .aspectFit
               sceneView.presentScene(scene)
             }
         return sceneView
