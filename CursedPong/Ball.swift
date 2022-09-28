@@ -14,6 +14,8 @@ class Ball {
     var physicsBody: SKPhysicsBody
     var sensitivity: Double
     
+    private let defaults = UserDefaults.standard
+    
     init() {
         self.sensitivity = 3
         self.shapeNode = SKShapeNode(circleOfRadius: 30)
@@ -32,7 +34,7 @@ class Ball {
         
         self.shapeNode.name = "ball"
         self.shapeNode.zPosition = 10
-        self.shapeNode.fillColor = .blue
+        self.shapeNode.fillColor = defaults.getBallColor()
         self.shapeNode.position = CGPoint(x:0,y:0)
         self.shapeNode.physicsBody = self.physicsBody
     }
