@@ -47,6 +47,8 @@
 		23D36CEF2808F2500090B8B5 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D36CEE2808F2500090B8B5 /* ComplicationController.swift */; };
 		23D36CF12808F2510090B8B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D36CF02808F2510090B8B5 /* Assets.xcassets */; };
 		23D36CF62808F2510090B8B5 /* CursedPongWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 23D36CD42808F24F0090B8B5 /* CursedPongWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2FEB088F28E3E2E3002C48BD /* ChangeBallColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB088E28E3E2E3002C48BD /* ChangeBallColorView.swift */; };
+		2FEB089228E3E3CE002C48BD /* ChangeBallColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB089128E3E3CE002C48BD /* ChangeBallColorViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		23D36CF02808F2510090B8B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23D36CF22808F2510090B8B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23D36CF32808F2510090B8B5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		2FEB088E28E3E2E3002C48BD /* ChangeBallColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBallColorView.swift; sourceTree = "<group>"; };
+		2FEB089128E3E3CE002C48BD /* ChangeBallColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBallColorViewModel.swift; sourceTree = "<group>"; };
 		8403B41927FCD029000317F7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8403B41B27FCD046000317F7 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		8403B41D27FD1679000317F7 /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		23C79F9227FA6ECB003578EC /* CursedPong */ = {
 			isa = PBXGroup;
 			children = (
+				2FEB089028E3E3AC002C48BD /* Change Ball COlor */,
 				23AD40AE2877F4A500FC864A /* Info.plist */,
 				232033232877F0F90089E6F1 /* Actions.sks */,
 				232033222877F0F90089E6F1 /* Assets.xcassets */,
@@ -255,6 +260,15 @@
 				23D36CF32808F2510090B8B5 /* PushNotificationPayload.apns */,
 			);
 			path = "CursedPongWatch Extension";
+			sourceTree = "<group>";
+		};
+		2FEB089028E3E3AC002C48BD /* Change Ball COlor */ = {
+			isa = PBXGroup;
+			children = (
+				2FEB088E28E3E2E3002C48BD /* ChangeBallColorView.swift */,
+				2FEB089128E3E3CE002C48BD /* ChangeBallColorViewModel.swift */,
+			);
+			path = "Change Ball COlor";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,6 +461,8 @@
 				232033322877F0F90089E6F1 /* CursedPongApp.swift in Sources */,
 				2320333A2877F0F90089E6F1 /* CursedMenuView.swift in Sources */,
 				2320333B2877F0F90089E6F1 /* Ball.swift in Sources */,
+				2FEB088F28E3E2E3002C48BD /* ChangeBallColorView.swift in Sources */,
+				2FEB089228E3E3CE002C48BD /* ChangeBallColorViewModel.swift in Sources */,
 				232033362877F0F90089E6F1 /* Player.swift in Sources */,
 				2320332F2877F0F90089E6F1 /* CursedPongModel.swift in Sources */,
 			);
