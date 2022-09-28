@@ -16,10 +16,15 @@ struct CursedMenuView: View {
                 VStack {
                     Spacer()
                     NavigationLink(destination: CursedPong()
-                        .navigationBarTitleDisplayMode(.inline).edgesIgnoringSafeArea(.all)) {
-                            Text("Play Cursed Pong").modifier(CursedTextModifier())
-                        }
-                        .foregroundStyle(.green)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .edgesIgnoringSafeArea(.all)
+                    ) {
+                        Text("Play Cursed Pong").modifier(CursedTextModifier())
+                    }.foregroundStyle(.green)
+                    NavigationLink(destination: ChangeBallColorView())  {
+                        Text("Change Ball Color")
+                            .foregroundColor(.white)
+                    }
                     Spacer()
                     VStack {
                         Text("Made by Sima and Harrison").font(.caption)
