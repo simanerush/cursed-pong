@@ -511,7 +511,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPongTv;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -538,7 +538,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPongTv;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.CursedPong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
